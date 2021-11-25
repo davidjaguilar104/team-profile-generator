@@ -1,1 +1,3 @@
 # team-profile-generator
+
+REMOVE DIST FROM .GITIGNORE AT PROJECT FINISH
