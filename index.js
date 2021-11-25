@@ -1,5 +1,14 @@
 const inquirer = require("inquirer");
 
+function whatOption(answers) {
+    if(answers.engineerOrInternOrTeam === 'engineer') {
+        console.log('chose engineer');
+        // This logged that i chose engineer
+        // need to add inquirer prompt here to ask the questions based on
+        // what option was chosen!
+    }
+}
+
 const promptUser = () => {
   return inquirer.prompt([
     {
@@ -32,4 +41,8 @@ const promptUser = () => {
   ]);
 };
 
-promptUser();
+promptUser()
+.then(answers => {
+    whatOption(answers);
+    console.log(answers);
+});
