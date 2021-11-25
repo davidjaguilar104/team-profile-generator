@@ -27,8 +27,8 @@ const promptUser = () => {
       name: "engineerOrInternOrTeam",
       message:
         "Would you like to add an engineer, add an intern, or finish building your team?",
-      choices: ["engineer", "intern", "finish team"],
-    },
+      choices: ["engineer", "intern", "finish builing the team"],
+    }
   ]);
 };
 
