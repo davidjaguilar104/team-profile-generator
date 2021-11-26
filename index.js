@@ -10,7 +10,7 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 
 
-const teamArr = []; 
+const team = []; 
  
 const addManager = () => {
     return inquirer.prompt ([
@@ -39,7 +39,7 @@ const addManager = () => {
         const  { name, id, email, officeNumber } = managerInput; 
         const manager = new Manager (name, id, email, officeNumber);
 
-        teamArr.push(manager); 
+        team.push(manager); 
         console.log(manager); 
     })
 };
@@ -116,12 +116,12 @@ const addEmployee = () => {
             console.log(employee);
         }
 
-        teamArr.push(employee); 
+        team.push(employee); 
 
         if (confirmAddEmployee) {
-            return addEmployee(teamArr); 
+            return addEmployee(team); 
         } else {
-            return teamArr;
+            return team;
         }
     })
 
@@ -134,7 +134,7 @@ const writeFile = data => {
         if (err) {
             console.log(err);
             return;
-        // when the profile has been created 
+        // create the profile and send message
         } else {
             console.log("Your team profile has been successfully created! Please check out the index.html")
         }
@@ -143,8 +143,8 @@ const writeFile = data => {
 
 addManager()
   .then(addEmployee)
-  .then(teamArr => {
-    return generateHTML(teamArr);
+  .then(team => {
+    return generateHTML(team);
   })
   .then(pageHTML => {
     return writeFile(pageHTML);
