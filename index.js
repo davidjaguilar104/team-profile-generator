@@ -23,7 +23,7 @@ function choseEngineer() {
       message: "What is the engineer's GitHub Username?",
     },
   ]);
-};
+}
 
 function choseIntern() {
   return inquirer.prompt([
@@ -106,24 +106,21 @@ promptUser().then((answers) => {
   if (answers.engineerOrInternOrTeam === 0) {
     console.log("chose to add an engineer");
     choseEngineer().then(() => {
-      promptChoices()
-      .then((answers) => {
+      promptChoices().then((answers) => {
         if (answers.engineerOrInternOrTeam === 0) {
           choseEngineer();
-        }
-        else if (answers.engineerOrInternOrTeam === 1) {
+        } else if (answers.engineerOrInternOrTeam === 1) {
           console.log("chose to add an intern");
           choseIntern().then(() => {
-            promptChoices()
-            .then((answers) => {
-              if(answers.engineerOrInternOrTeam === 2) {
-                console.log('finish building the team');
+            promptChoices().then((answers) => {
+              if (answers.engineerOrInternOrTeam === 2) {
+                console.log("finish building the team");
               }
-            })
+            });
           });
         }
-      })
+      });
     });
-  } 
+  }
   //   console.log(answers); // logs answer object to promptUser questions
 });
