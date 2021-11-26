@@ -7,10 +7,6 @@
 
 I utilized the Inquirer package in order to get user input in a more efficient manner. I wanted to build this project to demonstrate my skills using Node.js, NPM, and OOP. This application takes user input via the CLI and generates a team profile page website!
 
-## Description   
-
-This is my first application built using Node.js. I also utilized the Inquirer package in order to get user input in a more efficient manner. I wanted to build this project to demonstrate my skills using Node.js and NPM. This application can also be really useful for my fellow developers. My application will help you generate a README.md for any project you have! Feel free to use this application and spend more time developing rather than on your README.md for your projects!
-
 ## Walkthrough Video   
 
 [Click Here](https://watch.screencastify.com/v/pXx9fBBlSHLuh4rGjq3D)
