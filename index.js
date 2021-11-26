@@ -31,13 +31,13 @@ const addManager = () => {
         },
         {
             type: 'input',
-            name: 'officeNumber',
+            name: 'office',
             message: "What is the manager's office number?",
         }
     ])
     .then(managerInput => {
-        const  { name, id, email, officeNumber } = managerInput; 
-        const manager = new Manager (name, id, email, officeNumber);
+        const  { name, id, email, office } = managerInput; 
+        const manager = new Manager (name, id, email, office);
 
         team.push(manager); 
         console.log(manager); 
