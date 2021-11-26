@@ -5,7 +5,7 @@
 
 ## Description   
 
-I utilized the Inquirer package in order to get user input in a more efficient manner. I wanted to build this project to demonstrate my skills using Node.js, NPM, and OOP. This application takes user input via the CLI and generates an team profile page website!
+I utilized the Inquirer package in order to get user input in a more efficient manner. I wanted to build this project to demonstrate my skills using Node.js, NPM, and OOP. This application takes user input via the CLI and generates a team profile page website!
 
 ## Description   
 
