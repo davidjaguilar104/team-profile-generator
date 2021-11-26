@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 
-function whatOption(answers) {
+function choseEngineer(answers) {
   if (answers.engineerOrInternOrTeam === "engineer") {
     console.log("chose engineer");
     // This logged that i chose engineer
@@ -65,6 +65,6 @@ const promptUser = () => {
 };
 
 promptUser().then((answers) => {
-  whatOption(answers);
+  choseEngineer(answers);
 //   console.log(answers); // logs answer object to promptUser questions
 });
