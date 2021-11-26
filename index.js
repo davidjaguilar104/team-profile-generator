@@ -1,10 +1,6 @@
 const inquirer = require("inquirer");
 
 function choseEngineer() {
-  //   // This logged that i chose engineer
-  //   // need to add inquirer prompt here to ask the questions based on
-  //   // what option was chosen!
-
   return inquirer.prompt([
     {
       type: "input",
@@ -25,6 +21,31 @@ function choseEngineer() {
       type: "input",
       name: "engineerGitHub",
       message: "What is the engineer's GitHub Username?",
+    },
+  ]);
+};
+
+function choseIntern() {
+  return inquirer.prompt([
+    {
+      type: "input",
+      name: "internName",
+      message: "What is the team intern's name?",
+    },
+    {
+      type: "input",
+      name: "internId",
+      message: "What is the intern's ID?",
+    },
+    {
+      type: "input",
+      name: "internEmail",
+      message: "What is the intern's email address?",
+    },
+    {
+      type: "input",
+      name: "internSchool",
+      message: "What school does the intern attend?",
     },
   ]);
 }
@@ -85,8 +106,24 @@ promptUser().then((answers) => {
   if (answers.engineerOrInternOrTeam === 0) {
     console.log("chose to add an engineer");
     choseEngineer().then(() => {
-      promptChoices();
+      promptChoices()
+      .then((answers) => {
+        if (answers.engineerOrInternOrTeam === 0) {
+          choseEngineer();
+        }
+        else if (answers.engineerOrInternOrTeam === 1) {
+          console.log("chose to add an intern");
+          choseIntern().then(() => {
+            promptChoices()
+            .then((answers) => {
+              if(answers.engineerOrInternOrTeam === 2) {
+                console.log('finish building the team');
+              }
+            })
+          });
+        }
+      })
     });
-  }
+  } 
   //   console.log(answers); // logs answer object to promptUser questions
 });
