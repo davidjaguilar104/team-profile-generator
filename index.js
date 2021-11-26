@@ -1,35 +1,32 @@
 const inquirer = require("inquirer");
 
-function choseEngineer(answers) {
-  if (answers.engineerOrInternOrTeam === "engineer") {
-    console.log("chose engineer");
-    // This logged that i chose engineer
-    // need to add inquirer prompt here to ask the questions based on
-    // what option was chosen!
+function choseEngineer() {
+  //   // This logged that i chose engineer
+  //   // need to add inquirer prompt here to ask the questions based on
+  //   // what option was chosen!
 
-    return inquirer.prompt([
-      {
-        type: "input",
-        name: "engineerName",
-        message: "What is the team engineer's name?",
-      },
-      {
-        type: "input",
-        name: "engineerId",
-        message: "What is the engineer's ID?",
-      },
-      {
-        type: "input",
-        name: "engineerEmail",
-        message: "What is the engineer's email address?",
-      },
-      {
-        type: "input",
-        name: "engineerGitHub",
-        message: "What is the engineer's GitHub Username?",
-      },
-    ]);
-  }
+  return inquirer.prompt([
+    {
+      type: "input",
+      name: "engineerName",
+      message: "What is the team engineer's name?",
+    },
+    {
+      type: "input",
+      name: "engineerId",
+      message: "What is the engineer's ID?",
+    },
+    {
+      type: "input",
+      name: "engineerEmail",
+      message: "What is the engineer's email address?",
+    },
+    {
+      type: "input",
+      name: "engineerGitHub",
+      message: "What is the engineer's GitHub Username?",
+    },
+  ]);
 }
 
 const promptUser = () => {
@@ -59,12 +56,37 @@ const promptUser = () => {
       name: "engineerOrInternOrTeam",
       message:
         "Would you like to add an engineer, add an intern, or finish building your team?",
-      choices: ["engineer", "intern", "finish builing the team"],
+      choices: [
+        { name: "engineer", value: 0 },
+        { name: "intern", value: 1 },
+        { name: "finish builing the team", value: 2 },
+      ],
+    },
+  ]);
+};
+
+const promptChoices = () => {
+  return inquirer.prompt([
+    {
+      type: "list",
+      name: "engineerOrInternOrTeam",
+      message:
+        "Would you like to add an engineer, add an intern, or finish building your team?",
+      choices: [
+        { name: "engineer", value: 0 },
+        { name: "intern", value: 1 },
+        { name: "finish builing the team", value: 2 },
+      ],
     },
   ]);
 };
 
 promptUser().then((answers) => {
-  choseEngineer(answers);
-//   console.log(answers); // logs answer object to promptUser questions
+  if (answers.engineerOrInternOrTeam === 0) {
+    console.log("chose to add an engineer");
+    choseEngineer().then(() => {
+      promptChoices();
+    });
+  }
+  //   console.log(answers); // logs answer object to promptUser questions
 });
