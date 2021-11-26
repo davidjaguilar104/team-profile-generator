@@ -103,15 +103,18 @@ const promptChoices = () => {
 };
 
 promptUser().then((answers) => {
+  console.log(answers);
   if (answers.engineerOrInternOrTeam === 0) {
     console.log("chose to add an engineer");
-    choseEngineer().then(() => {
+    choseEngineer().then((answers) => {
+      console.log(answers);
       promptChoices().then((answers) => {
         if (answers.engineerOrInternOrTeam === 0) {
           choseEngineer();
         } else if (answers.engineerOrInternOrTeam === 1) {
           console.log("chose to add an intern");
-          choseIntern().then(() => {
+          choseIntern().then((answers) => {
+            console.log(answers);
             promptChoices().then((answers) => {
               if (answers.engineerOrInternOrTeam === 2) {
                 console.log("finish building the team");
